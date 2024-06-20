@@ -10,7 +10,8 @@ services:
       - "3307:3306"
     volumes:
       - db_data:/var/lib/mysql
-      - ./db.sql:/docker-entrypoint-initdb.d/db.sql:ro
+      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/1_create_tables.sql:ro
+      - ./sql/insert_data.sql:/docker-entrypoint-initdb.d/2_insert_data.sql:ro
 
   app:
     build: .
