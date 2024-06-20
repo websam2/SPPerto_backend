@@ -1,15 +1,15 @@
-Create DATABASE spperto;
+CREATE DATABASE IF NOT EXISTS spperto;
 
 USE spperto;
 
-CREATE TABLE empresa (
+CREATE TABLE IF NOT EXISTS empresa (
     id INT PRIMARY KEY,
     nome VARCHAR(255),
     telefone VARCHAR(20),
     logo VARCHAR(255)
 );
 
-CREATE TABLE link (
+CREATE TABLE IF NOT EXISTS link (
     id INT AUTO_INCREMENT PRIMARY KEY,
     empresa_id INT,
     url VARCHAR(255),
@@ -17,7 +17,7 @@ CREATE TABLE link (
     FOREIGN KEY (empresa_id) REFERENCES empresa(id)
 );
 
-#Inserir Dados 
+-- Inserir Dados
 INSERT INTO empresa (id, nome, telefone, logo) VALUES
 (1, 'SAA', '13 4039-4052', 'assets/images/logo_sp.svg'),
 (2, 'CAT', '13 4039-4052', 'assets/images/logo_cati.svg'),
@@ -31,7 +31,11 @@ INSERT INTO empresa (id, nome, telefone, logo) VALUES
 (10, 'FUNDAÇÃO FLORESTAL', '13 4039-4052', 'assets/images/logo_florestal.svg'),
 (11, 'MEIO AMBIENTE', '13 4039-4052', 'assets/images/logo_meioAmbiente.svg'),
 (12, 'PROC GERAL DO ESTADO', '13 4039-4052', 'assets/images/logo_procuradoria.svg'),
-(13, 'STARTUP', '13 4039-4052', 'assets/images/logo_startup.svg');
+(13, 'STARTUP', '13 4039-4052', 'assets/images/logo_startup.svg')
+ON DUPLICATE KEY UPDATE
+    nome = VALUES(nome),
+    telefone = VALUES(telefone),
+    logo = VALUES(logo);
 
 INSERT INTO link (empresa_id, url, name) VALUES
 (1, '', 'Link 1'), (1, '', 'Link 2'), (1, '', 'Link 3'), (1, '', 'Link 4'), (1, '', 'Link 5'),
@@ -46,25 +50,7 @@ INSERT INTO link (empresa_id, url, name) VALUES
 (10, '', 'Link 1'), (10, '', 'Link 2'), (10, '', 'Link 3'), (10, '', 'Link 4'), (10, '', 'Link 5'),
 (11, '', 'Link 1'), (11, '', 'Link 2'), (11, '', 'Link 3'), (11, '', 'Link 4'), (11, '', 'Link 5'),
 (12, '', 'Link 1'), (12, '', 'Link 2'), (12, '', 'Link 3'), (12, '', 'Link 4'), (12, '', 'Link 5'),
-(13, '', 'Link 1'), (13, '', 'Link 2'), (13, '', 'Link 3'), (13, '', 'Link 4'), (13, '', 'Link 5');
-
-#Consulta SQL para Formar o JSON
-SELECT JSON_ARRAYAGG(
-    JSON_OBJECT(
-        'id', e.id,
-        'nome', e.nome,
-        'telefone', e.telefone,
-        'logo', e.logo,
-        'links', (
-            SELECT JSON_ARRAYAGG(
-                JSON_OBJECT(
-                    'url', l.url,
-                    'name', l.name
-                )
-            )
-            FROM link l
-            WHERE l.empresa_id = e.id
-        )
-    )
-) AS empresas_json
-FROM empresa e;
+(13, '', 'Link 1'), (13, '', 'Link 2'), (13, '', 'Link 3'), (13, '', 'Link 4'), (13, '', 'Link 5')
+ON DUPLICATE KEY UPDATE
+    url = VALUES(url),
+    name = VALUES(name);
