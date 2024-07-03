@@ -16,3 +16,4 @@ def get_db_connection():
         print(f"Error connecting to MySQL: {e}")
         return None
 
+

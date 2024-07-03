@@ -1,11 +1,7 @@
-from flask import Flask, jsonify
-from flask_cors import CORS
-import json
-from db import get_db_connection
+from flask import current_app as app, jsonify
+from app.db import get_db_connection
 from mysql.connector import Error
-
-app = Flask(__name__)
-CORS(app)
+import json
 
 @app.route('/', methods=['GET'])
 def get_empresas():
@@ -53,8 +49,4 @@ def get_empresas():
         return jsonify(empresas)
     else:
         return jsonify([])
-
-if __name__ == '__main__':
-    app.run(debug=True, host='0.0.0.0')
-
 
