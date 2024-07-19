@@ -4,8 +4,8 @@ services:
   db:
     image: mysql:8.0
     environment:
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}    # Define a senha para o usuário root
-      MYSQL_DATABASE: ${DB_NAME}             # Define o nome do banco de dados a ser criado
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}   
+      MYSQL_DATABASE: ${DB_NAME}             
     ports:
       - "3307:3306"
     volumes:
@@ -17,12 +17,12 @@ services:
     build: .
     environment:
       FLASK_ENV: development
-      DB_USER: root                          # Use o usuário root para o banco de dados
-      DB_PASSWORD: ${DB_PASSWORD}            # Senha para o root
-      DB_HOST: db                            # Nome do serviço Docker para o MySQL
-      DB_NAME: ${DB_NAME}                    # Nome do banco de dados
+      DB_USER: root                          
+      DB_PASSWORD: ${DB_PASSWORD}           
+      DB_HOST: db                            
+      DB_NAME: ${DB_NAME}                   
     ports:
-      - "5000:5000"
+      - "8080:80"
     depends_on:
       - db
     volumes:

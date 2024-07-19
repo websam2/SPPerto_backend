@@ -20,19 +20,19 @@ ON DUPLICATE KEY UPDATE
     logo = VALUES(logo);
 
 INSERT INTO link (empresa_id, url, name) VALUES
-(1, '', 'Link 1'), (1, '', 'Link 2'), (1, '', 'Link 3'), (1, '', 'Link 4'), (1, '', 'Link 5'),
-(2, '', 'Link 1'), (2, '', 'Link 2'), (2, '', 'Link 3'), (2, '', 'Link 4'), (2, '', 'Link 5'),
-(3, '', 'Link 1'), (3, '', 'Link 2'), (3, '', 'Link 3'), (3, '', 'Link 4'), (3, '', 'Link 5'),
-(4, '', 'Link 1'), (4, '', 'Link 2'), (4, '', 'Link 3'), (4, '', 'Link 4'), (4, '', 'Link 5'),
+(1, '', 'Site Oficial'), (1, '', 'SOE'), (1, '', 'SIDECC'), (1, '', 'SIBH'), (1, '', 'SAISP'),
+(2, '', 'Site Oficial'), (2, '', 'SOE'), (2, '', 'SIDECC'), (2, '', 'SIBH'), (2, '', 'SAISP'),
+(3, '', 'Site Oficial'), (3, '', 'SOE'), (3, '', 'SIDECC'), (3, '', 'SIBH'), (3, '', 'SAISP'),
+(4, '', 'Site Oficial'), (4, '', 'SOE'), (4, '', 'SIDECC'), (4, '', 'SIBH'), (4, '', 'SAISP'),
 (5, 'http://www.daee.sp.gov.br/site/', 'Site Oficial'), (5, 'http://soe.daee.sp.gov.br/rq_portal/', 'SOE'), (5, 'http://sidecc.daee.sp.gov.br/bmt/', 'SIDECC'), (5, 'https://cth.daee.sp.gov.br/sibh/', 'SIBH'), (5, 'https://www.saisp.br/online/produtos-publicos/', 'SAISP'),
-(6, '', 'Link 1'), (6, '', 'Link 2'), (6, '', 'Link 3'), (6, '', 'Link 4'), (6, '', 'Link 5'),
-(7, '', 'Link 1'), (7, '', 'Link 2'), (7, '', 'Link 3'), (7, '', 'Link 4'), (7, '', 'Link 5'),
-(8, '', 'Link 1'), (8, '', 'Link 2'), (8, '', 'Link 3'), (8, '', 'Link 4'), (8, '', 'Link 5'),
-(9, '', 'Link 1'), (9, '', 'Link 2'), (9, '', 'Link 3'), (9, '', 'Link 4'), (9, '', 'Link 5'),
-(10, '', 'Link 1'), (10, '', 'Link 2'), (10, '', 'Link 3'), (10, '', 'Link 4'), (10, '', 'Link 5'),
-(11, '', 'Link 1'), (11, '', 'Link 2'), (11, '', 'Link 3'), (11, '', 'Link 4'), (11, '', 'Link 5'),
-(12, '', 'Link 1'), (12, '', 'Link 2'), (12, '', 'Link 3'), (12, '', 'Link 4'), (12, '', 'Link 5'),
-(13, '', 'Link 1'), (13, '', 'Link 2'), (13, '', 'Link 3'), (13, '', 'Link 4'), (13, '', 'Link 5')
+(6, '', 'Site Oficial'), (6, '', 'SOE'), (6, '', 'SIDECC'), (6, '', 'SIBH'), (6, '', 'SAISP'),
+(7, '', 'Site Oficial'), (7, '', 'SOE'), (7, '', 'SIDECC'), (7, '', 'SIBH'), (7, '', 'SAISP'),
+(8, '', 'Site Oficial'), (8, '', 'SOE'), (8, '', 'SIDECC'), (8, '', 'SIBH'), (8, '', 'SAISP'),
+(9, '', 'Site Oficial'), (9, '', 'SOE'), (9, '', 'SIDECC'), (9, '', 'SIBH'), (9, '', 'SAISP'),
+(10, '', 'Site Oficial'), (10, '', 'SOE'), (10, '', 'SIDECC'), (10, '', 'SIBH'), (10, '', 'SAISP'),
+(11, '', 'Site Oficial'), (11, '', 'SOE'), (11, '', 'SIDECC'), (11, '', 'SIBH'), (11, '', 'SAISP'),
+(12, '', 'Site Oficial'), (12, '', 'SOE'), (12, '', 'SIDECC'), (12, '', 'SIBH'), (12, '', 'SAISP'),
+(13, '', 'Site Oficial'), (13, '', 'SOE'), (13, '', 'SIDECC'), (13, '', 'SIBH'), (13, '', 'SAISP')
 ON DUPLICATE KEY UPDATE
     url = VALUES(url),
     name = VALUES(name);
